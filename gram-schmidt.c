@@ -5,7 +5,7 @@
 #include <math.h>
 #include <locale.h>
 
-int normalizar(int n, int c, double w[c], double n_u[][c], int valido[]);
+void normalizar(int n, int c, double w[c], double n_u[][c], int valido[]);
 void wn_calc(int n, int l, int c, int matriz[l][c], double matriz_normal[l][c], double cria_w[c], int valido[]);
 
 int main()
@@ -68,7 +68,7 @@ int main()
     return 0;
 }
 
-int normalizar(int n, int c, double w[c], double n_u[][c], int valido[])
+void normalizar(int n, int c, double w[c], double n_u[][c], int valido[])
 {
     int i, j;
     double soma_mdl = 0;
@@ -85,7 +85,6 @@ int normalizar(int n, int c, double w[c], double n_u[][c], int valido[])
     { /*Etapa que verifica se é LD.*/
         printf("\nO Vetor [%d] LD - Foi descartado.\n", n);
         valido[n] = 0;
-        return 0;
     }
 
     for (i = 0; i < c; i++)
@@ -94,7 +93,6 @@ int normalizar(int n, int c, double w[c], double n_u[][c], int valido[])
     }
 
     valido[n] = 1;
-    return 1;
 }
 
 void wn_calc(int n, int l, int c, int matriz[l][c], double matriz_normal[l][c], double cria_w[c], int valido[])
